@@ -1,0 +1,5 @@
+<button class="start-button" *ngIf="!started" (click)="start()">Start!</button>
+<app-guess *ngIf="started"
+            [currentGuess]="hiddenPassword"
+            (startAgain)="startAgain()">
+</app-guess>

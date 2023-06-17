@@ -1,4 +1,37 @@
 <div class="container">
-    <button *ngFor="let letter of getVerbArray()">{{letter}}</button>
-</div>
-
+    <div class="guess-buttons">
+      <button
+        class="guess-button"
+        *ngFor="let letter of getCurrentGuessArray()">
+        {{ letter }}
+      </button>
+    </div>
+  </div>
+  
+  <form class="form" (submit)="sendLetter()" [formGroup]="guessForm">
+    <div class="form-group">
+      <label class="form-label" for="guess-input">Jaka litera?</label>
+      <input matInput class="form-input" formControlName="guess" id="guess-input" />
+    </div>
+    <button class="form-submit" type="submit">Wyslij!</button>
+  </form>
+  
+  <form class="form" (submit)="sendPassword()" [formGroup]="passwordGuess">
+    <div class="form-group">
+      <label class="form-label" for="password-input">Jakie jest hasło?</label>
+      <input matInput class="form-input" formControlName="passwordGuess" id="password-input" />
+    </div>
+    <button class="form-submit" type="submit">Wyslij!</button>
+  </form>
+  
+  <div *ngIf="!successfullyGuessed" class="secret-message">
+    Hasło to nadal tajemnica
+  </div>
+  
+  <div class="container" *ngIf="successfullyGuessed">
+    <div class="success-message">
+      BRAWO!
+      <button class="play-again-button" (click)="onceAgain()">Ja chce jeszcze raz!</button>
+    </div>
+  </div>
+  

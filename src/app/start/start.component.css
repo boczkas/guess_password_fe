@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .start-button {
+    animation: blink-animation 2s infinite;
+    font-size: 350px;
+    background-color: #4287f5;
+    color: #fff;
+    cursor: pointer;
+    padding: 60px 120px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  @keyframes blink-animation {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+      background-color: #4287f5;
+      color: #fff;
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+      background-color: #fff;
+      color: #4287f5;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      background-color: #4287f5;
+      color: #fff;
+    }
+  }
+  
